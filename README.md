@@ -1,4 +1,4 @@
-# AWS STS Authentication Proxy
+# 🔑 AWS STS Authentication Proxy
 
 This API acts as an AWS STS (Security Token Service) Authentication Proxy, providing a simple and secure way for you to provision temporary, limited-privilege AWS credentials for third-parties who need access to your AWS resource(s).
 
