@@ -1,20 +1,21 @@
 # AWS STS Authentication Proxy
 
-This is an API that acts as an AWS STS Authentication Proxy.
+This API acts as an AWS STS (Security Token Service) Authentication Proxy, providing a simple and secure way for you to provision temporary, limited-privilege AWS credentials for third-parties who need access to your AWS resource(s).
 
-The API accepts a username and password and returns an STS token based on a preconfigured AWS IAM role.
+
+## Features
+- Secure authentication to AWS services.
+- Easy integration with third-party systems.
 
 
 ## Use Case
-- A third-party vendor without an AWS account needs access to one of your AWS resources.
+Ideal for scenarios where a third-party vendor without an AWS account needs access to your AWS resources, ensuring secure and controlled access.
 
 
 ## Pre-requisites
 - AWS account
-- An IAM user with sts:AssumeRole permissions.
-- An IAM role with the resource permissions you want to grant to the third-party (e.g. read-only access to S3 bucket)
-
-
+- An IAM user with `sts:AssumeRole` permissions.
+- An IAM role with the necessary permissions for the resources you want to grant access to (e.g., read-only access to an S3 bucket).
 
 ## Quick Start
 ### 1. Set environment variables
@@ -25,7 +26,7 @@ AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole permissi
 ```
 
 > [!NOTE]
-> The variables prefixed with `AWS_` are not required if you are running the app on an EC2 instance with an IAM role that has the requisite STS assume role permissions.
+> The `AWS_` prefixed variables are not needed if running on an EC2 instance with the required IAM role.
 
 
 ### 2. Run the application
@@ -34,7 +35,7 @@ AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole permissi
 ```
 
 ### 3. Test the API
-Use [Swagger UI](http://localhost:8080/swagger-ui/index.html) to test the API using the default credentials (username: `vendor` / password: `password`).
+Use Swagger UI to test the API at http://localhost:8080/swagger-ui/index.html.
 
 
 ## API usage
@@ -79,7 +80,10 @@ Use [Swagger UI](http://localhost:8080/swagger-ui/index.html) to test the API us
 Always use HTTPS with TLS/SSL certificates to secure data in transit. This protects sensitive data, such as authentication credentials and session tokens, from being intercepted.
 
 ### Secure Application Properties
-Avoid storing sensitive information like directly in `application.properties`.
+Avoid storing sensitive information directly in `application.properties`.
 
 ### Role and Access Management
 Apply the principle of least privilege for the AWS IAM roles. Ensure that the IAM role assumed by your application has only the necessary permissions and nothing more.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
