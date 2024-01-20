@@ -71,7 +71,7 @@ Use [Swagger UI](http://localhost:8080/swagger-ui/index.html) to test the API us
 ``503 Service Unavailable``
 - Authentication was successful but the AWS client encountered an error.
 
----
+
 
 ## Running in Production
 
