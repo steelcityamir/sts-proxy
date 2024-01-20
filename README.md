@@ -4,17 +4,17 @@ This is an API that acts as an AWS STS Authentication Proxy.
 
 The API accepts a username and password and returns an STS token based on a preconfigured AWS IAM role.
 
----
+
 ## Use Case
 - A third-party vendor without an AWS account needs access to one of your AWS resources.
 
----
+
 ## Pre-requisites
 - AWS account
 - An IAM user with sts:AssumeRole permissions.
 - An IAM role with the resource permissions you want to grant to the third-party (e.g. read-only access to S3 bucket)
 
----
+
 
 ## Quick Start
 ### 1. Set environment variables
@@ -36,7 +36,7 @@ AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole permissi
 ### 3. Test the API
 Use [Swagger UI](http://localhost:8080/swagger-ui/index.html) to test the API using the default credentials (username: `vendor` / password: `password`).
 
----
+
 ## API usage
 
 ### POST /auth
