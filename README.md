@@ -80,5 +80,11 @@ Avoid storing sensitive information directly in `application.properties`.
 ### Role and Access Management
 Apply the principle of least privilege for the AWS IAM roles. Ensure that the IAM role assumed by your application has only the necessary permissions and nothing more.
 
+### Use Strong Complex Passwords for API Access
+When third-party vendors use this API, enforce the following guidelines for passwords:
+- Minimum Length: Passwords must be at least 12 characters long.
+- Complexity Requirements: Include a mix of uppercase and lowercase letters, numbers, and symbols.
+- No Predictable Patterns: Avoid sequential characters (e.g., 1234, abcd) and repeated characters (e.g., aaaa, 1111).
+
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
