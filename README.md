@@ -3,11 +3,6 @@
 This API acts as an AWS STS (Security Token Service) Authentication Proxy, providing a simple and secure way for you to provision temporary, limited-privilege AWS credentials for third-parties who need access to your AWS resource(s).
 
 
-## Features
-- Secure authentication to AWS services.
-- Easy integration with third-party systems.
-
-
 ## Use Case
 Ideal for scenarios where a third-party vendor without an AWS account needs access to your AWS resources, ensuring secure and controlled access.
 
