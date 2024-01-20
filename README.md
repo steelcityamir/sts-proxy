@@ -77,7 +77,7 @@ Use Swagger UI to test the API at http://localhost:8080/swagger-ui/index.html.
 
 
 
-## 🔒 Running in Production
+## 🔒 Security Considerations for Production
 
 ### Use a TLS/SSL Certificate
 Always use HTTPS with TLS/SSL certificates to secure data in transit. This protects sensitive data, such as authentication credentials and session tokens, from being intercepted.
