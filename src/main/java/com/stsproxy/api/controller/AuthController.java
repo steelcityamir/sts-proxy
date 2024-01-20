@@ -1,5 +1,6 @@
 package com.stsproxy.api.controller;
 
+import com.stsproxy.api.data.StsCredentials;
 import com.stsproxy.api.data.UserCredentials;
 import com.stsproxy.api.service.AwsStsService;
 import jakarta.validation.Valid;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import software.amazon.awssdk.services.sts.model.Credentials;
 
 @RestController
 @RequestMapping("/auth")
@@ -26,7 +26,7 @@ public class AuthController {
     private AwsStsService awsStsService;
 
     @PostMapping
-    public ResponseEntity<?> authenticateVendor(@RequestBody @Valid UserCredentials userCredentials) {
+    public ResponseEntity<StsCredentials> authenticateVendor(@RequestBody @Valid UserCredentials userCredentials) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         userCredentials.getUsername(),
@@ -34,7 +34,7 @@ public class AuthController {
                 )
         );
 
-        Credentials stsCredentials = awsStsService.getTemporaryCredentials();
+        StsCredentials stsCredentials = awsStsService.getTemporaryCredentials();
         return ResponseEntity.ok(stsCredentials);
     }
 }
