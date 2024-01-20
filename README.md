@@ -8,12 +8,20 @@ Ideal for scenarios where a third-party vendor without an AWS account needs acce
 
 
 ## 📋 Pre-requisites
+- Java JDK 21 installed on your system.
 - AWS account
 - An IAM user with `sts:AssumeRole` permissions.
 - An IAM role with the necessary permissions for the resources you want to grant access to (e.g., read-only access to an S3 bucket).
 
 ## ⚡ Quick Start
-### 1. Set environment variables
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/codebyamir/aws-sts-proxy.git
+cd aws-sts-proxy
+```
+
+### 2. Set environment variables
 ```bash
 ROLE_ARN=<IAM role arn> # arn:aws:iam::123456789012:role/S3Access
 AWS_ACCESS_KEY_ID=<access key id of user who has sts:AssumeRole permission>
@@ -24,12 +32,12 @@ AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole permissi
 > The `AWS_` prefixed variables are not needed if running on an EC2 instance with the required IAM role.
 
 
-### 2. Run the application
+### 3. Run the application
 ```bash
 ./gradlew bootRun
 ```
 
-### 3. Test the API
+### 4. Test the API
 Use Swagger UI to test the API at http://localhost:8080/swagger-ui/index.html.
 
 
