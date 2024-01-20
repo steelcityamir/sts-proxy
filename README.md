@@ -17,7 +17,7 @@ The API accepts a username and password and returns an STS token based on a prec
 ---
 
 ## Quick Start
-1. Set the following environment variables before running the app:
+### 1. Set environment variables
 ```bash
 ROLE_ARN=<IAM role arn> # arn:aws:iam::123456789012:role/S3Access
 AWS_ACCESS_KEY_ID=<access key id of user who has sts:AssumeRole permission>
@@ -28,12 +28,13 @@ AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole permissi
 > The variables prefixed with `AWS_` are not required if you are running the app on an EC2 instance with an IAM role that has the requisite STS assume role permissions.
 
 
-2. Run the application:
+### 2. Run the application
 ```bash
 ./gradlew bootRun
 ```
 
-3. Use [Swagger UI](http://localhost:8080/swagger-ui/index.html) to test the API using the default credentials (vendor / password)
+### 3. Test the API
+Use [Swagger UI](http://localhost:8080/swagger-ui/index.html) to test the API using the default credentials (username: `vendor` / password: `password`).
 
 ---
 ## API usage
