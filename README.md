@@ -112,7 +112,7 @@ These can be overridden using environment variables.
 - Default: The hash corresponds to the password `password`.
 
 > [!TIP]
-> It is highly recommended to change the default password. Use a bcrypt generator to create a new hash.
+> It is highly recommended to change the default password. Use a bcrypt generator to create a new hash using 10 rounds.
 
 
 ## 🔒 Security Considerations for Production
