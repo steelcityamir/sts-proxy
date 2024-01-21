@@ -95,7 +95,7 @@ Enforce the following guidelines for passwords:
 - No Predictable Patterns: Avoid sequential characters (e.g., 1234, abcd) and repeated characters (e.g., aaaa, 1111).
 
 ### IP Whitelisting
-Restrict access using an IP whitelist for an additional layer of security.
+Restrict access to authorized IP addresses for an additional layer of security.
 
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
