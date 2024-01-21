@@ -23,9 +23,9 @@ cd aws-sts-proxy
 
 ### 2. Set environment variables
 ```bash
-ROLE_ARN=<IAM role arn> # arn:aws:iam::123456789012:role/S3Access
-AWS_ACCESS_KEY_ID=<access key id of user who has sts:AssumeRole permission>
-AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole permission>
+export ROLE_ARN=<IAM role arn> # arn:aws:iam::123456789012:role/S3Access
+export AWS_ACCESS_KEY_ID=<access key id of user who has sts:AssumeRole permission>
+export AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole permission>
 ```
 
 > [!NOTE]
