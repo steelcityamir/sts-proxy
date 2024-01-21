@@ -96,7 +96,8 @@ These can be overridden using environment variables.
 - Minimum: 900 seconds (15 minutes)
 - Maximum: 43200 seconds (12 hours)
 
-The session duration should be long enough to perform the necessary tasks but short enough to maintain security.
+> [!TIP]
+> The session duration should be long enough to perform the necessary tasks but short enough to maintain security.
 
 ### Vendor Username
 
@@ -104,15 +105,15 @@ The session duration should be long enough to perform the necessary tasks but sh
 - Description: This is the username for proxy authentication.
 - Default: `vendor`
 
-You can replace the default value with a username of your choice.
-
 ### Vendor Password
 
 `vendor.password=${VENDOR_PASSWORD:{bcrypt}$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG}`
 - Description: The bcrypt hash of the password used for proxy authentication.
 - Default: The hash corresponds to the password `password`.
 
-Security Note: It is highly recommended to change the default password. Use a bcrypt generator to create a new hash.
+> [!TIP]
+> It is highly recommended to change the default password. Use a bcrypt generator to create a new hash.
+
 
 ## 🔒 Security Considerations for Production
 
@@ -125,9 +126,9 @@ Avoid storing sensitive information directly in `application.properties`.
 ### Role and Access Management
 Apply the principle of least privilege for the AWS IAM roles. Ensure that the IAM role assumed by your application has only the necessary permissions and nothing more.
 
-### Use Strong Complex Passwords for API Access
-Enforce the following guidelines for passwords:
-- Minimum Length: Passwords must be at least 12 characters long.
+### Use Strong Complex Password for API Access
+Enforce the following guidelines for the password:
+- Minimum Length: Password must be at least 12 characters long.
 - Complexity Requirements: Include a mix of uppercase and lowercase letters, numbers, and symbols.
 - No Predictable Patterns: Avoid sequential characters (e.g., 1234, abcd) and repeated characters (e.g., aaaa, 1111).
 
