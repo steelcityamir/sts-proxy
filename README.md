@@ -75,7 +75,44 @@ Use Swagger UI to test the API at http://localhost:8080/swagger-ui/index.html.
 ``503 Service Unavailable``
 - Authentication was successful but the AWS client encountered an error.
 
+## ⚙️ Configuration
 
+The `application.properties` file contains several configuration options to tailor the behavior of the application. 
+
+These can be overridden using environment variables.
+
+### AWS Role ARN
+
+`aws.role.arn=${ROLE_ARN}`
+
+- Description: This is the Amazon Resource Name (ARN) of the role that the application will assume when interacting with AWS Security Token Service (STS).
+- Example: `arn:aws:iam::123456789012:role/YourRoleName`
+
+### Session Lifetime
+
+`aws.role.session.duration.seconds=${ROLE_SESSION_DURATION_SECONDS:900}`
+- Description: Specifies the duration, in seconds, for which the credentials should remain valid.
+- Default: 900 seconds (15 minutes)
+- Minimum: 900 seconds (15 minutes)
+- Maximum: 43200 seconds (12 hours)
+
+The session duration should be long enough to perform the necessary tasks but short enough to maintain security.
+
+### Vendor Username
+
+`vendor.username=${VENDOR_USERNAME:vendor}`
+- Description: This is the username for proxy authentication.
+- Default: `vendor`
+
+You can replace the default value with a username of your choice.
+
+### Vendor Password
+
+`vendor.password=${VENDOR_PASSWORD:{bcrypt}$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG}`
+- Description: The bcrypt hash of the password used for proxy authentication.
+- Default: The hash corresponds to the password `password`.
+
+Security Note: It is highly recommended to change the default password. Use a bcrypt generator to create a new hash.
 
 ## 🔒 Security Considerations for Production
 
