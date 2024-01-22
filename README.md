@@ -5,7 +5,8 @@ This API acts as an AWS STS (Security Token Service) Authentication Proxy, provi
 
 ## 🌟 Use Case
 Ideal for scenarios where a third-party vendor without an AWS account needs access to your AWS resources, ensuring secure and controlled access.
-![Flow Diagram](https://github.com/codebyamir/aws-sts-proxy/assets/54147931/fa9e9095-0bdd-4b28-9529-c92657e29856)
+![Flow Diagram](https://github.com/codebyamir/sts-proxy/assets/54147931/a37cf74d-a9bd-4907-8e63-e5a9fbd86b20)
+
 
 
 ## 📋 Pre-requisites
