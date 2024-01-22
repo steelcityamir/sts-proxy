@@ -19,8 +19,8 @@ Ideal for scenarios where a third-party vendor without an AWS account needs acce
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/codebyamir/aws-sts-proxy.git
-cd aws-sts-proxy
+git clone https://github.com/codebyamir/sts-proxy.git
+cd sts-proxy
 ```
 
 ### 2. Set environment variables
