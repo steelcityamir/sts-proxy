@@ -3,7 +3,7 @@
 <h1 align="center">STSproxy</h1>
 </div>
 
-This API acts as an AWS STS (Security Token Service) Authentication Proxy, providing a simple and secure way for you to provision temporary, limited-privilege AWS credentials for third-parties who need access to your AWS resource(s).
+STSproxy is an AWS STS (Security Token Service) Authentication Proxy, providing a simple and secure way for you to provision temporary, limited-privilege AWS credentials for third-parties who need access to your AWS resource(s).
 
 
 ## 🌟 Use Case
