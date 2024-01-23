@@ -133,7 +133,7 @@ Apply the principle of least privilege for the AWS IAM roles. Ensure that the IA
 
 ### Use Strong Complex Password for API Access
 Enforce the following guidelines for the password:
-- Minimum Length: Password must be at least 12 characters long.
+- Minimum Length: Password should be at least 12 characters long.
 - Complexity Requirements: Include a mix of uppercase and lowercase letters, numbers, and symbols.
 - No Predictable Patterns: Avoid sequential characters (e.g., 1234, abcd) and repeated characters (e.g., aaaa, 1111).
 
