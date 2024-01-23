@@ -12,7 +12,7 @@ Ideal for scenarios where a third-party vendor without an AWS account needs acce
 
 
 
-## 📋 Pre-requisites
+## 📋 What You Need to Get Started
 - AWS account
 - An IAM user with `sts:AssumeRole` permissions.
 - An IAM role with the necessary permissions for the resources you want to grant access to (e.g. read-only access to an S3 bucket).
