@@ -5,7 +5,8 @@
 
 STSproxy is an AWS STS (Security Token Service) Authentication Proxy, providing a simple and secure way for you to provision temporary, limited-privilege AWS credentials for third-parties who need access to your AWS resource(s).
 
-
+<br />
+ 
 ## 🌟 Use Case
 Ideal for scenarios where a third-party vendor without an AWS account needs access to your AWS resources, ensuring secure and controlled access.
 ![Flow Diagram](https://github.com/codebyamir/sts-proxy/assets/54147931/a37cf74d-a9bd-4907-8e63-e5a9fbd86b20)
@@ -17,23 +18,44 @@ Ideal for scenarios where a third-party vendor without an AWS account needs acce
 - An IAM user with `sts:AssumeRole` permissions.
 - An IAM role with the necessary permissions for the resources you want to grant access to (e.g. read-only access to an S3 bucket).
 
-## ⚡ Quick Start
+<br />
 
-###  🐳 Running with Docker 
-Coming soon
+<!---
+##  🐳 Running with Docker 
+#### Create .env file
+```
+ROLE_ARN=<IAM role arn> # arn:aws:iam::123456789012:role/S3Access
+AWS_ACCESS_KEY_ID=<access key id of user who has sts:AssumeRole permission>
+AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole permission>
+```
 
-### 🛠️ Building the App from Source
+> [!NOTE]
+> The `AWS_` prefixed variables are not needed if running on an EC2 instance with the required IAM role.
+
+#### Run the Docker container
+```bash
+docker run -d -p 8080:8080 --env-file .env --name sts-proxy codebyamir/sts-proxy
+```
+
+
+#### Test the API
+Use Swagger UI to test the API at http://localhost:8080/swagger-ui/index.html.
+
+ <br />
+--->
+
+## 🛠️ Building the App from Source
 
 #### Pre-requisites
 - Java JDK 21
   
-#### 1. Clone the repository
+#### Clone the repository
 ```bash
 git clone https://github.com/codebyamir/sts-proxy.git
 cd sts-proxy
 ```
 
-#### 2. Set environment variables
+#### Set environment variables
 ```bash
 export ROLE_ARN=<IAM role arn> # arn:aws:iam::123456789012:role/S3Access
 export AWS_ACCESS_KEY_ID=<access key id of user who has sts:AssumeRole permission>
@@ -44,14 +66,15 @@ export AWS_SECRET_ACCESS_KEY=<secret access key of user who has sts:AssumeRole p
 > The `AWS_` prefixed variables are not needed if running on an EC2 instance with the required IAM role.
 
 
-#### 3. Run the application
+#### Run the application
 ```bash
 ./gradlew bootRun
 ```
 
-#### 4. Test the API
+#### Test the API
 Use Swagger UI to test the API at http://localhost:8080/swagger-ui/index.html.
 
+<br />
 
 ## 🚀 API usage
 
@@ -87,6 +110,8 @@ Use Swagger UI to test the API at http://localhost:8080/swagger-ui/index.html.
 ``503 Service Unavailable``
 - Authentication was successful but the AWS client encountered an error.
 
+<br />
+
 ## ⚙️ Configuration
 
 The `application.properties` file contains several configuration options to tailor the behavior of the application. 
@@ -94,38 +119,43 @@ The `application.properties` file contains several configuration options to tail
 These can be overridden using environment variables.
 
 ### AWS Role ARN
+This is the Amazon Resource Name (ARN) of the role that the application will assume when interacting with AWS Security Token Service (STS).
 
-`aws.role.arn=${ROLE_ARN}`
+- Environment variable: `ROLE_ARN`
+- Application property: `aws.role.arn=${ROLE_ARN}`
 
-- Description: This is the Amazon Resource Name (ARN) of the role that the application will assume when interacting with AWS Security Token Service (STS).
-- Example: `arn:aws:iam::123456789012:role/YourRoleName`
+> [!NOTE]
+> Example ARN would be `arn:aws:iam::123456789012:role/S3Access`
 
 ### Session Lifetime
 
-`aws.role.session.duration.seconds=${ROLE_SESSION_DURATION_SECONDS:900}`
-- Description: Specifies the duration, in seconds, for which the credentials should remain valid.
-- Default: 900 seconds (15 minutes)
-- Minimum: 900 seconds (15 minutes)
-- Maximum: 43200 seconds (12 hours)
+Specifies the duration, in seconds, for which the credentials should remain valid.  The default and minimum value is 900 seconds (15 minutes).   The maximum value is 43200 seconds (12 hours).
+
+- Environment variable: `ROLE_SESSION_DURATION_SECONDS`
+- Configuration property: `aws.role.session.duration.seconds=${ROLE_SESSION_DURATION_SECONDS:900}`
 
 > [!TIP]
 > The session duration should be long enough to perform the necessary tasks but short enough to maintain security.
 
-### Vendor Username
+### Proxy Username
+This is the username for proxy authentication. Default value is `vendor`.
 
-`vendor.username=${VENDOR_USERNAME:vendor}`
-- Description: This is the username for proxy authentication.
-- Default: `vendor`
+- Environment variable: `VENDOR_USERNAME`
+- Application property: `vendor.username=${VENDOR_USERNAME:vendor}`
 
-### Vendor Password
 
-`vendor.password=${VENDOR_PASSWORD:{bcrypt}$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG}`
-- Description: The bcrypt hash of the password used for proxy authentication.
-- Default: The hash corresponds to the password `password`.
+### Proxy Password
+
+The bcrypt hash of the password used for proxy authentication. The default value hash corresponds to the password `password`.
+
+- Environment variable: `VENDOR_PASSWORD`
+- Application property: `vendor.password=${VENDOR_PASSWORD:{bcrypt}$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG}`
+
 
 > [!TIP]
 > It is highly recommended to change the default password. Use a bcrypt generator to create a new hash using 10 rounds.
 
+<br />
 
 ## 🔒 Security Considerations for Production
 
@@ -146,6 +176,8 @@ Enforce the following guidelines for the password:
 
 ### IP Whitelisting
 Restrict access to authorized IP addresses for an additional layer of security.
+
+<br />
 
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
