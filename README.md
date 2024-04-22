@@ -1,5 +1,5 @@
 <div align="center">
-<img height="60" src="https://github.com/codebyamir/sts-proxy/assets/54147931/938fd461-02bc-487e-bb03-e1b4c2ed4bb1">
+<img height="60" src="https://github.com/steelcityamir/sts-proxy/assets/54147931/938fd461-02bc-487e-bb03-e1b4c2ed4bb1">
 <h1 align="center">STSproxy</h1>
 </div>
 
@@ -9,7 +9,7 @@ STSproxy is an AWS STS (Security Token Service) Authentication Proxy, providing 
  
 ## 🌟 Use Case
 Ideal for scenarios where a third-party vendor without an AWS account needs access to your AWS resources, ensuring secure and controlled access.
-![Flow Diagram](https://github.com/codebyamir/sts-proxy/assets/54147931/a37cf74d-a9bd-4907-8e63-e5a9fbd86b20)
+![Flow Diagram](https://github.com/steelcityamir/sts-proxy/assets/54147931/a37cf74d-a9bd-4907-8e63-e5a9fbd86b20)
 
 
 
@@ -51,7 +51,7 @@ Use Swagger UI to test the API at http://localhost:8080/swagger-ui/index.html.
   
 #### Clone the repository
 ```bash
-git clone https://github.com/codebyamir/sts-proxy.git
+git clone https://github.com/steelcityamir/sts-proxy.git
 cd sts-proxy
 ```
 
